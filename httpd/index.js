@@ -2,7 +2,7 @@
 
  let http = require('http');
 
- const routingTable = require('./config.json');
+ const routingTable = require('../config.json');
 
  '/': {
  url: '../htdocs/index.html',

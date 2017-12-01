@@ -38,20 +38,16 @@ console.log(
 );
 });
 request.on('end', () => {
-switch (request.url) {
-case '/':
-serve(response, '../htdocs/index.html', 'text/html');
-break;
-case '/assets/css/styles.css':
-serve(response, '../htdocs/assets/css/styles.css', 'text/css');
-break;
-case '/assets/png/SokobanClone_byVellidragon.png':
-serve(
-response,
-'../htdocs/assets/png/SokobanClone_byVellidragon.png',
-'image/png'
-);
-break;
+if (request.url in routingTable) {
+let obj = routingTable[request.url];
+serve(response, obj.url, obj.type);
+}
+12
+else {
+console.log(' 未定義的存取: ' + request.url);
+response.end();
+}
+});
 default:
 console.log(' 未定義的存取: ' + request.url);
 response.end();

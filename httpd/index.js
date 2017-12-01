@@ -4,11 +4,11 @@
 
  const routingTable = require('./config.json');
 
- 
+
  * @name serve
  * @function
-  * @param response - http.ServerResponse 物件
-    * @param fname - 要回傳的檔案名
+ * @param response - http.ServerResponse 物件
+ * @param fname - 要回傳的檔案名
  * @param datatype - 回傳檔案內容的 Mine-Type
  * @returns {undefined}
  */

@@ -1,14 +1,14 @@
- 'use strict';
+'use strict';
 
  let http = require('http');
 
- const routingTable = {
+const routingTable = {
  '/': {
  url: '../htdocs/index.html',
  type: 'text/html'
  },
  '/styles.css': {
- url: '../htdocs/assets/css/styles.css',
+url: '../htdocs/assets/css/styles.css',
  type: 'text/css'
  },
  '/SokobanClone_byVellidragon.png': {
@@ -18,19 +18,19 @@
  };
 
  /**
-21. * 利⽤ http.ServerResponse 物件回傳檔案內容
-22. *
-23. * @name serve
-24. * @function
-25. * @param response - http.ServerResponse 物件
-26. * @param fname - 要回傳的檔案名
-27. * @param datatype - 回傳檔案內容的 Mine-Type
-28. * @returns {undefined}
-29. */
+ * 利⽤ http.ServerResponse 物件回傳檔案內容
+ *
+ * @name serve
+ * @function
+  * @param response - http.ServerResponse 物件
+    * @param fname - 要回傳的檔案名
+ * @param datatype - 回傳檔案內容的 Mine-Type
+ * @returns {undefined}
+ */
  let serve = (response, fname, datatype) => {
  let fs = require('fs');
 
- fs.readFile(fname, (err, data) => {
+fs.readFile(fname, (err, data) => {
  if (err) {
  console.log(' 檔案讀取錯誤');
  }
@@ -68,12 +68,12 @@
  serve(response, obj.url, obj.type);
  }
  else {
- console.log(' 未定義的存取: ' + request.url);
+console.log(' 未定義的存取: ' + request.url);
 
  response.end();
  }
  });
- }).listen(8088);
+}).listen(8088);
 
  // log message to Console
  console.log(' 伺服器啓動，連線 url: http://127.0.0.1:8088/');

@@ -436,6 +436,20 @@ let prototypeGameState = {
     this.level[y] = replaceAt(this.level[y], x, SOKOBAN.MAN_ON_GOAL);
 
     return this;
+  },
+  GameEnd:function(){
+    var winer = true,i,j;
+
+    for (var i = 0;i < this.level.length;i++){
+      for(var j = 0;i < this.level[i].length;j++){
+        if(this.level[i][j]== SOKOBAN.GOAL||this.level[i][j] == SOKOBAN.BOX){
+          winer = false;
+        }
+      }
+    }
+    if(finished){
+      alert("贏家");
+    }
   }
 };
 
@@ -563,6 +577,7 @@ let sokoban = {
    */
   update: function (e) {
     this.move(e);
+    this.GameEnd();
     this.paint();
   },
 };

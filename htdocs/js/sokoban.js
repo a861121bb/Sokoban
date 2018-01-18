@@ -441,13 +441,13 @@ let prototypeGameState = {
     var winer = true,i,j;
 
     for (var i = 0;i < this.level.length;i++){
-      for(var j = 0;i < this.level[i].length;j++){
+      for(var j = 0;j < this.level[i].length;j++){
         if(this.level[i][j]== SOKOBAN.GOAL||this.level[i][j] == SOKOBAN.BOX){
           winer = false;
         }
       }
     }
-    if(finished){
+    if(winer){
       alert("贏家");
     }
   }
